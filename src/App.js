@@ -17,7 +17,7 @@ export default class App extends React.Component {
           <Link to="/">Home</Link>
           {/* <Link to="/about-me/about">about me</Link> */}
           <Switch>
-            <Route exact path="/" component={ShoeList} />
+            <Route path="/" component={ShoeList} />
             {/* <Route exact path="/" component={Detail} /> */}
             {/* <Route exact path="/" component={AboutMe} /> */}
           </Switch>
