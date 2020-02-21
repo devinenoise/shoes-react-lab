@@ -1,9 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
   text-align: center;
+  font-family: "Roboto", Arial, Helvetica, sans-serif
 }
 
 .shoe-images {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+
+li {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
