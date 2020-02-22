@@ -49,7 +49,7 @@ export default class AddShoe extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="shoe-form">
                 <form onSubmit={this.handleSubmit}>
                     Make A New Shoe
                     <br />
