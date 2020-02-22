@@ -7,6 +7,8 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import ShoeList from './ShoeList.js';
+import Detail from './Detail.js';
+import AddShoe from './AddShoe.js';
 
 export default class App extends React.Component {
   render() {
@@ -14,11 +16,16 @@ export default class App extends React.Component {
       <Router>
         <div>
           {/* <Header /> */}
-          <Link to="/">Home</Link>
+          <Link class="nav" to="/">Home</Link>
+          <Link class="nav" to="/AddShoe/New">Add A Shoe</Link>
           {/* <Link to="/about-me/about">about me</Link> */}
+          
+          
           <Switch>
-            <Route path="/" component={ShoeList} />
-            {/* <Route exact path="/" component={Detail} /> */}
+            <Route exact path="/" component={ShoeList} />
+            <Route exact path="/:shoeId" component={Detail} />
+            <Route exact path="/:AddShoe/New" component={AddShoe} />
+
             {/* <Route exact path="/" component={AboutMe} /> */}
           </Switch>
         </div>
