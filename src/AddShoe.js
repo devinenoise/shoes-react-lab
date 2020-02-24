@@ -19,10 +19,10 @@ export default class AddShoe extends Component {
     }
     handleBrandChange = (e) => {
         console.log(e.target.value)
-        this.setState({ brand: Number(e.target.value) })
+        this.setState({ brand: (e.target.value) })
     }
     handleImageChange = (e) => {
-        this.setState({ image: e.target.value })
+        this.setState({ url: e.target.value })
     }
     handleTypeChange = (e) => {
         this.setState({ type: Number(e.target.value) })
@@ -35,19 +35,33 @@ export default class AddShoe extends Component {
     }
 
     handleSubmit = async (e) => {
+
         e.preventDefault();
         const newShoe = {
             name: this.state.name,
             brand: this.state.brand,
             url: this.state.url,
-            // typeiD with our type ??
             typeId: this.state.type,
             laces: this.state.laces,
         }
-        // const dbShoe = await request.post('https://rocky-basin-80195.herokuapp.com/api/shoes', newShoe);
+        console.log(newShoe);
+        await request.post('https://rocky-basin-80195.herokuapp.com/api/shoes', newShoe);
         this.props.history.push('/');
     }
     render() {
+
+        // console.log(this.state.types);
+        const typeArray = this.state.types.map(type => type.type);
+        
+
+        const typeX = typeArray.filter((typeName, index) => typeArray.indexOf((typeName) === index)
+            
+        );
+        
+        // console.log('------------------->>>>', typeX);
+
+
+
         return (
             <div className="shoe-form">
                 <form onSubmit={this.handleSubmit}>
@@ -71,7 +85,10 @@ export default class AddShoe extends Component {
                     <label>
                         Type:
                         <select onChange={this.handleTypeChange}>
-                            {this.state.types.map(type => <option value={type.id}>
+                            {                            
+                            
+                            this.state.types.map(type => 
+                            <option value={type.id}>
                                 {type.type}
                             </option>)}
                         </select>
@@ -80,8 +97,8 @@ export default class AddShoe extends Component {
                     <label>
                         Has Laces:
                         <select onChange={this.handleLacesChange}>
-                            <option value="true" >True</option>
-                            <option value="false" >False</option>
+                            <option value="true" >Yes</option>
+                            <option value="false" >No</option>
                         </select>
                     </label>
                     <br />
