@@ -8,10 +8,10 @@ export default class AddShoe extends Component {
     state = {
         types: [],
         laces: true,
-        type: 1,
+        type: 4,
     };
     componentDidMount = async () => {
-        const types = await request.get(`https://rocky-basin-80195.herokuapp.com/api/shoes`);
+        const types = await request.get(`https://rocky-basin-80195.herokuapp.com/api/types`);
         this.setState({ types: types.body });
     }
     handleNameChange = (e) => {
@@ -44,22 +44,20 @@ export default class AddShoe extends Component {
             typeId: this.state.type,
             laces: this.state.laces,
         }
-        console.log(newShoe);
+        // console.log(newShoe);
         await request.post('https://rocky-basin-80195.herokuapp.com/api/shoes', newShoe);
         this.props.history.push('/');
     }
     render() {
 
-        // console.log(this.state.types);
-        const typeArray = this.state.types.map(type => type.type);
-        
 
-        const typeX = typeArray.filter((typeName, index) => typeArray.indexOf((typeName) === index)
-            
-        );
-        
-        // console.log('------------------->>>>', typeX);
 
+        // const typeArray = this.state.types.map(obj => {
+        //     return { type: obj.type, id: obj.type_id }
+        // });
+        // const typeX = typeArray.reduce((typeName, index) => typeName.includes(index) ? typeName : [...typeName, index], [])
+
+        // // console.log(typeX);
 
 
         return (
@@ -85,12 +83,11 @@ export default class AddShoe extends Component {
                     <label>
                         Type:
                         <select onChange={this.handleTypeChange}>
-                            {                            
-                            
-                            this.state.types.map(type => 
-                            <option value={type.id}>
-                                {type.type}
-                            </option>)}
+                            {
+                                this.state.types.map(type =>
+                                    <option value={type.id}>
+                                        {type.name}
+                                    </option>)}
                         </select>
                     </label>
                     <br />
