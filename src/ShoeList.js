@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
 import ShoeItem from "./ShoeItem.js";
 import request from 'superagent';
-// import SearchBar from './SearchBar.js';
+import { GetShoes } from './ShoeApi.js'
 import { Link } from 'react-router-dom'
-
+import Detail from './Detail';
 
 export default class ShoeList extends Component {
     state = {
-        // searchQuery: this.props.match.params.name,
+    //    searchQuery: this.props.match.params.name,
         shoes: [],
     }
     async componentDidMount() {
-        const data = await request.get(`https://rocky-basin-80195.herokuapp.com/api/shoes`)
+        const data = await GetShoes();
         this.setState({ shoes: data.body })
     }
-    // handleChange = (e) => this.setState({ searchQuery: e.target.value })
+    handleChange = (e) => this.setState({ searchQuery: e.target.value })
     render() {
         return (
             <div>
                 <ul>
                     {
                         this.state.shoes.map(shoe =>
-                            <Link to={`shoes/${shoe.name}`} key={shoe.name}>
+                            <Link to={`shoes/${shoe.id}`} key={shoe.id}>
                                 <ShoeItem data={shoe} />
                             </Link>)
                     }

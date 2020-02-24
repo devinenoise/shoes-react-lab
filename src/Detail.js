@@ -1,20 +1,35 @@
 import React, { Component } from 'react'
-import { GetShoes } from './ShoeApi'
-import ShoeItem from './ShoeItem';
+import { getShoe } from './ShoeApi'
+
+
+// import ShoeItem from './ShoeItem';
 
 
 export default class Detail extends Component {
     state = { shoe: {} }
+
     async componentDidMount() {
-        const data = await GetShoes(this.props.match.params.shoeId);
-        if (data.body.results) { this.setState({ shoe: data.body }) }
+        const data = await getShoe(this.props.match.params.shoeId);
+        
+        if (data.body) { this.setState({ shoe: data.body[0] }) }
+
+        console.log(this.state.shoe);
     }
     render() {
-        const { shoe } = this.state;
-
 
         return (
-            <ShoeItem data={shoe} />
+            <>
+            { this.state.shoe && 
+            <div>
+            
+            <h1 className="shoe-name">{this.state.shoe.name}</h1>
+            <h3 className="shoe-name">Brand: {this.state.shoe.brand}</h3>
+            <img className="shoe-images" src={this.state.shoe.url} alt={this.state.shoe.name} />
+            {/* <h3>Type: {this.state.shoe.type_id}</h3> */}
+            <p>Laces: {String(this.state.shoe.laces)}</p>
+            </div>
+            }
+            </>
         );
     }
 }
