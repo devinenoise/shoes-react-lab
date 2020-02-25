@@ -10,7 +10,9 @@ import ShoeList from './ShoeList.js';
 import Detail from './Detail.js';
 import AddShoe from './AddShoe.js';
 import Header from './Header.js';
-// import ShoeItem from './ShoeItem';
+import UpdateShoe from './UpdateShoe.js';
+
+
 
 export default class App extends React.Component {
   render() {
@@ -25,6 +27,7 @@ export default class App extends React.Component {
 
           <Switch>
             <Route exact path="/:shoes?" component={ShoeList} />
+            <Route exact path="/update/:shoeId" component={UpdateShoe} />
             <Route exact path="/shoes/:shoeId" component={Detail} />
             <Route path="/:AddShoe/New" component={AddShoe} />
 

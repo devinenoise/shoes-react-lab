@@ -54,3 +54,15 @@ button {
   padding: 10px;
   width: 150px;
 }
+
+option {
+  text-transform: capitalize;
+}
+
+.delete {
+  margin-top: 20px;
+}
+
+.update {
+  background-color: lightblue;
+}

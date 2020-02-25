@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import request from 'superagent';
 
 
-
-
 export default class AddShoe extends Component {
     state = {
         types: [],
@@ -18,7 +16,6 @@ export default class AddShoe extends Component {
         this.setState({ name: e.target.value })
     }
     handleBrandChange = (e) => {
-        console.log(e.target.value)
         this.setState({ brand: (e.target.value) })
     }
     handleImageChange = (e) => {

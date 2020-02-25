@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { getShoe } from './ShoeApi'
 
 
-// import ShoeItem from './ShoeItem';
-
-
 export default class Detail extends Component {
     state = { shoe: {} }
 
