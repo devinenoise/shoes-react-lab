@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App.js correctly 1`] = `
+<div>
+  <div
+    className="header"
+  >
+    <h1>
+      Shoe Shop
+    </h1>
+  </div>
+  <a
+    className="nav"
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+  <a
+    className="nav"
+    href="/AddShoe/New"
+    onClick={[Function]}
+  >
+    Add A Shoe
+  </a>
+  <div>
+    <ul />
+  </div>
+</div>
+`;
+
+exports[`renders ShoeList.js correctly 1`] = `
+<div>
+  <ul />
+</div>
+`;
