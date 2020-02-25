@@ -35,7 +35,6 @@ export default class UpdateShoe extends Component {
         this.setState({ name: e.target.value })
     }
     handleBrandChange = (e) => {
-        console.log(e.target.value)
         this.setState({ brand: (e.target.value) })
     }
     handleImageChange = (e) => {
@@ -43,7 +42,6 @@ export default class UpdateShoe extends Component {
     }
     handleTypeChange = (e) => {
         this.setState({ typeId: e.target.value })
-        console.log(e.target.value);
     }
     handleLacesChange = (e) => {
         const actualBool = e.target.value === 'false'
@@ -62,6 +60,7 @@ export default class UpdateShoe extends Component {
 
     handleUpdate = async (e) => {
         e.preventDefault();
+
         const updateShoe = {
             name: this.state.name,
             brand: this.state.brand,
@@ -70,8 +69,8 @@ export default class UpdateShoe extends Component {
             laces: this.state.laces,
             id: Number(this.props.match.params.shoeId)
         }
-        console.log(this.state.type);
         const dbShoe = await request.put('https://rocky-basin-80195.herokuapp.com/api/shoes', updateShoe);
+
         this.props.history.push('/');
     }
 
