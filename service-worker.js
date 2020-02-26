@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/shoes-react-lab/precache-manifest.96ace707bc36b9d6aca98af53a3b2c3e.js"
+  "/shoes-react-lab/precache-manifest.e1f50070e39b2336fff0e34a13b9e4d9.js"
 );
 
 self.addEventListener('message', (event) => {
